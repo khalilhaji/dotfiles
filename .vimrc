@@ -1,5 +1,20 @@
-execute pathogen#infect()
-
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+" Vundle Plugins
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'wlangstroth/vim-racket'
+Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-syntastic/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'sjl/gundo.vim'
+call vundle#end()
+filetype plugin indent on
+set encoding=utf-8
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " UI
 set number
@@ -23,25 +38,20 @@ colorscheme gruvbox
 " let g:airline_extensions=[]
 let g:airline_powerline_fonts = 1
 
-
-
-
+" Indentation
 set tabstop=2
 set softtabstop=2
+set shiftwidth=2
 set expandtab
-set cursorline
-filetype plugin indent on
-autocmd FileType javascript setlocal ts=4 sts=4 sw=4
+set autoindent
+
+set cursorline " Highlight current line
 set lazyredraw
 set showmatch
 set incsearch
 set hlsearch
 let mapleader = ","
 nnoremap <leader><space> :noh<cr>
-set foldenable
-set foldlevelstart=10
-set foldnestmax=10
-set foldmethod=syntax
 nnoremap j gj
 nnoremap k gk
 nnoremap < ^
@@ -52,10 +62,20 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>l :ls<cr>
 nnoremap <leader>u :GundoToggle<cr>
 
+" syntax
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " completion
-set completeopt-=preview
+" set completeopt-=preview
 
+" let g:Tex_FormatDependency_dvi = 'dvi,ps,pdf'
 
 set rtp+=~/.fzf
 
@@ -68,6 +88,3 @@ set writebackup
 if has('python3')
         let g:gundo_prefer_python3 = 1
 endif
-
-runtime plugin/RainbowParenthesis.vim
-
